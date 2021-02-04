@@ -1,13 +1,13 @@
 import os
 
-from flask import Flask, session
+from flask import Flask, session, render_template, request, redirect, url_for, jsonify
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 app = Flask(__name__)
 
-# Check for database_url in environment variables
+# Check for database_url in environment variable
 if not os.getenv("DATABASE_URL"):
     raise RuntimeError("DATABASE_URL is not set")
 
@@ -23,4 +23,18 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
-    return "Wohoo!"
+    return render_template("index.html")
+
+@app.route("/submit", methods=["GET","POST"])
+def submit():
+    if request.method == "POST":
+        try:
+            username = request.form.get("username")
+            caption = request.form.get("caption")
+            imageLink = request.form.get("image-link")
+            # Post the details to database
+        except:
+            # Return custom error page later
+            return "An error occured"
+
+    return redirect(url_for("index"))

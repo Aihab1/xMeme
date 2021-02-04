@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+button, input, button:active, input:active, button:focus, input:focus {
+  outline: none !important;
+  border: none;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+.form #main-form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 1100px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.form #main-form-container #main-form-left {
+  width: 400px;
+  height: inherit;
+  z-index: 2;
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.form #main-form-container #main-form-left h1 {
+  font-size: 3.5rem;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.form #main-form-container #main-form-left p {
+  padding: 25px;
+}
+
+.form #main-form-container #main-form {
+  background: white;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+  padding: 40px 20px;
+  width: 700px;
+  height: 600px;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.form #main-form-container #main-form h1 {
+  width: 400px;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.form #main-form-container #main-form .sub-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form #main-form-container #main-form .sub-form label {
+  margin-bottom: -10px;
+}
+
+.form #main-form-container #main-form .sub-form input {
+  margin: 15px 0;
+  padding: 5px 2.5px;
+  border-bottom: 2.5px solid black;
+  width: 400px;
+  font-size: 20px;
+  border-radius: 2px;
+}
+
+.form #main-form-container #main-form .sub-form input:active,
+.form #main-form-container #main-form .sub-form input:focus {
+  border-bottom: 2.5px solid #3086e9;
+}
+
+.form #main-form-container #main-form button {
+  margin: 40px 0;
+  width: 400px;
+  border: 1px solid black;
+  padding: 5px 2.5px;
+  font-size: 20px;
+  border-radius: 2px;
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+
+.form #main-form-container #main-form button:focus,
+.form #main-form-container #main-form button:hover,
+.form #main-form-container #main-form button:active {
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 0, 255, 0.7)), to(rgba(255, 0, 255, 0.3)));
+  background: linear-gradient(to right top, rgba(255, 0, 255, 0.7), rgba(255, 0, 255, 0.3));
+  -webkit-animation: buttonAnim 3s ease-in-out infinite;
+          animation: buttonAnim 3s ease-in-out infinite;
+}
+
+.form .background-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+@-webkit-keyframes buttonAnim {
+  to {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes buttonAnim {
+  to {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+/*# sourceMappingURL=index.css.map */

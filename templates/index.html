@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xMeme by Aihab</title>
+    <link rel="stylesheet" href="../static/styles/index/index.css">
+</head>
+
+<body>
+    <!-- Form to post memes -->
+    <div class="form">
+        <!-- Background image -->
+        <div class="background-img">
+            <img src="../static/images/background.jpg" alt="background-people-laughing">
+        </div>
+        <!-- Background image \End -->
+        <div id="main-form-container">
+            <div id="main-form-left">
+                <h1>Are you the meme lord?</h1>
+                <p>Do you have what it takes to be the meme lord? Show me your memes!</p>
+            </div>
+            <div id="main-form">
+                <h1>Post your meme</h1>
+                <form action="{{ url_for('submit') }}" method="POST">
+                    <div class="username sub-form">
+                        <label for="username">Your Name</label>
+                        <input type="text" name="username" id="username" spellcheck="false" required>
+                    </div>
+                    <div class="caption sub-form">
+                        <label for="caption">Caption</label>
+                        <input type="text" name="caption" id="caption" spellcheck="false">
+                    </div>
+                    <div class="image-link sub-form">
+                        <label for="image-link">Image Link</label>
+                        <input type="text" name="image-link" id="image-link" spellcheck="false">
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Form to post memes \End -->
+</body>
+
+</html>
