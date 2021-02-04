@@ -1,13 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-button, input, button:active, input:active, button:focus, input:focus{
-    outline: none !important;
-    border: none;
+button,
+input,
+button:active,
+input:active,
+button:focus,
+input:focus {
+  outline: none !important;
+  border: none;
+}
+
+//For tablets and mobile phones
+@media screen and (max-width: 1000px) {
+  #hamburger {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    padding: 15px 15px 15px 15px;
+    .hamburger {
+      transition: 0.5s ease-in-out;
+      width: 25px;
+      height: 2px;
+      margin-bottom: 5px;
+      background: linear-gradient(
+        to right top,
+        rgba(255, 0, 255, 1),
+        rgba(255, 0, 255, 0.7)
+      );
+      z-index: 1000;
+    }
+  }
+  #hamburger.clicked {
+    .hamburger1 {
+      transform: rotate(45deg) translateX(39%);
+    }
+    .hamburger3 {
+      transform: rotate(315deg) translateX(39%);
+    }
+    .hamburger2 {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+  }
 }

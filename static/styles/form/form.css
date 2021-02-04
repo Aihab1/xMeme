@@ -1,55 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-button,
-input,
-button:active,
-input:active,
-button:focus,
-input:focus {
-  outline: none !important;
-  border: none;
-}
-
-@media screen and (max-width: 1000px) {
-  #hamburger {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 1000;
-    padding: 15px 15px 15px 15px;
-  }
-  #hamburger .hamburger {
-    -webkit-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
-    width: 25px;
-    height: 2px;
-    margin-bottom: 5px;
-    background: -webkit-gradient(linear, left bottom, right top, from(magenta), to(rgba(255, 0, 255, 0.7)));
-    background: linear-gradient(to right top, magenta, rgba(255, 0, 255, 0.7));
-    z-index: 1000;
-  }
-  #hamburger.clicked .hamburger1 {
-    -webkit-transform: rotate(45deg) translateX(39%);
-            transform: rotate(45deg) translateX(39%);
-  }
-  #hamburger.clicked .hamburger3 {
-    -webkit-transform: rotate(315deg) translateX(39%);
-            transform: rotate(315deg) translateX(39%);
-  }
-  #hamburger.clicked .hamburger2 {
-    -webkit-transform: translateX(-150%);
-            transform: translateX(-150%);
-    opacity: 0;
-  }
-}
-
 .form {
   position: relative;
   width: 100%;
@@ -354,4 +302,4 @@ input:focus {
     position: absolute;
   }
 }
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=form.css.map */

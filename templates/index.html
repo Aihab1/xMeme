@@ -9,6 +9,13 @@
 </head>
 
 <body>
+    <!-- Hamburger menu to toggle meme submission form (for small devices only)-->
+    <div id="hamburger">
+        <div class="hamburger hamburger1"></div>
+        <div class="hamburger hamburger2"></div>
+        <div class="hamburger hamburger3"></div>
+    </div>
+    <!-- Hamburger \End -->
     <!-- Form to post memes -->
     <div class="form">
         <!-- Background image -->
@@ -20,21 +27,24 @@
             <div id="main-form-left">
                 <h1>Are you the meme lord?</h1>
                 <p>Do you have what it takes to be the meme lord? Show me your memes!</p>
+                <!-- Button to toggle form for mobile devices and tablets -->
+                <button id="post-meme-button">Post a meme</button>
+                <!-- Button \End -->
             </div>
             <div id="main-form">
                 <h1>Post your meme</h1>
                 <form action="{{ url_for('submit') }}" method="POST">
                     <div class="username sub-form">
-                        <label for="username">Your Name</label>
-                        <input type="text" name="username" id="username" spellcheck="false" required>
+                        <label for="username">Meme Owner</label>
+                        <input type="text" name="username" id="username" spellcheck="false" placeholder="Enter your full name" required>
                     </div>
                     <div class="caption sub-form">
                         <label for="caption">Caption</label>
-                        <input type="text" name="caption" id="caption" spellcheck="false">
+                        <input type="text" name="caption" id="caption" spellcheck="false" placeholder="Be creative with the caption">
                     </div>
                     <div class="image-link sub-form">
-                        <label for="image-link">Image Link</label>
-                        <input type="text" name="image-link" id="image-link" spellcheck="false">
+                        <label for="image-link">Meme URL</label>
+                        <input type="text" name="image-link" id="image-link" spellcheck="false" placeholder="Enter URL of your meme here">
                     </div>
                     <button type="submit">Submit</button>
                 </form>
@@ -43,5 +53,7 @@
     </div>
     <!-- Form to post memes \End -->
 </body>
+
+<script src="../static/script/hamburgerMenu/hamburgerMenu.js"></script>
 
 </html>
