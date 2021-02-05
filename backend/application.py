@@ -5,7 +5,9 @@ from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-app = Flask(__name__)
+template_dir = os.path.abspath("../frontend/templates")
+static_dir = os.path.abspath("../frontend/static")
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 # Check for database_url in environment variable
 if not os.getenv("DATABASE_URL"):
@@ -29,10 +31,10 @@ def index():
 def submit():
     if request.method == "POST":
         try:
-            username = request.form.get("username")
+            owner = request.form.get("username")
             caption = request.form.get("caption")
-            imageLink = request.form.get("image-link")
-            # Post the details to database
+            url = request.form.get("image-link")
+            # Post the details to the database
         except:
             # Return custom error page later
             return "An error occured"
