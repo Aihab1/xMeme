@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;  
 }
 
 button,
@@ -24,7 +24,9 @@ input:focus {
     top: 15px;
     right: 15px;
     z-index: 1000;
-    padding: 15px 15px 15px 15px;
+    padding: 10px 10px 5px 10px;
+    border-radius: 0.4rem;
+    background: white;
     .hamburger {
       transition: 0.5s ease-in-out;
       width: 25px;

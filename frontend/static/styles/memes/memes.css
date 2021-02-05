@@ -1,0 +1,90 @@
+.meme-container-outer {
+  min-height: 100vh;
+  width: 100%;
+  padding: 15px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.meme-container-outer #browse-header {
+  margin: 25px 0;
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+.meme-container-outer .meme-container {
+  width: 100%;
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 25, 255, 0.7)), to(rgba(255, 25, 255, 0.3)));
+  background: linear-gradient(to top right, rgba(255, 25, 255, 0.7), rgba(255, 25, 255, 0.3));
+  margin: 10px 0;
+  padding: 25px;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.meme-container-outer .meme-container img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  pointer-events: none;
+}
+
+.meme-container-outer .meme-container h1 {
+  margin-bottom: -10px;
+  font-size: 1.5rem;
+}
+
+.meme-container-outer .meme-container p {
+  padding: 5px 0;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .meme-container-outer #browse-header {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .meme-container-outer {
+    padding: 15px;
+  }
+  .meme-container-outer #browse-header {
+    font-size: 2.2rem;
+  }
+  .meme-container-outer .meme-container {
+    padding: 10px;
+  }
+  .meme-container-outer .meme-container h1 {
+    font-size: 1.3rem;
+  }
+  .meme-container-outer .meme-container p {
+    font-size: 1rem;
+  }
+}
+/*# sourceMappingURL=memes.css.map */

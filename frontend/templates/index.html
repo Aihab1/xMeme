@@ -52,6 +52,16 @@
         </div>
     </div>
     <!-- Form to post memes \End -->
+    <div class="meme-container-outer">
+        <h1 id="browse-header">Browse Memes</h1>
+        {% for meme in memes %}
+        <div class="meme-container">
+            <h1>{{meme.owner}}</h1>
+            <p>{{meme.caption}}</p>
+            <img src="{{meme.url}}" alt="Meme #{{meme.id}}">
+        </div>
+        {% endfor %}
+    </div>
 </body>
 
 <script src="../static/scripts/index/index.js"></script>
