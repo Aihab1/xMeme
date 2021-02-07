@@ -7,11 +7,9 @@
     <title>xMeme by Aihab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" href="../static/styles/index/index.css">
-    <script
-      src="http://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous">
-    </script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+        </script>
 </head>
 
 <body>
@@ -39,18 +37,21 @@
             </div>
             <div id="main-form">
                 <h1>Post your meme</h1>
-                <form action="{{ url_for('submit') }}" method="POST">
+                <form>
                     <div class="username sub-form">
-                        <label for="username">Meme Owner</label>
-                        <input type="text" name="username" id="username" spellcheck="false" placeholder="Enter your full name" required>
+                        <label for="username">Meme Owner <span>*</span></label>
+                        <input type="text" name="username" id="username" spellcheck="false"
+                            placeholder="Enter your full name" required>
                     </div>
                     <div class="caption sub-form">
                         <label for="caption">Caption</label>
-                        <input type="text" name="caption" id="caption" spellcheck="false" placeholder="Be creative with the caption">
+                        <input type="text" name="caption" id="caption" spellcheck="false"
+                            placeholder="Be creative with the caption">
                     </div>
                     <div class="image-link sub-form">
-                        <label for="image-link">Meme URL</label>
-                        <input type="text" name="image-link" id="image-link" spellcheck="false" placeholder="Enter URL of your meme here" required>
+                        <label for="image-link">Meme URL <span>*</span></label>
+                        <input type="text" name="image-link" id="image-link" spellcheck="false"
+                            placeholder="Enter URL of your meme here" required>
                     </div>
                     <button id="create" type="submit">Submit</button>
                 </form>
@@ -58,16 +59,14 @@
         </div>
     </div>
     <!-- Form to post memes \End -->
+    <!-- All memes container -->
     <div class="meme-container-outer">
         <h1 id="browse-header">Browse Memes</h1>
-        {% for meme in memes %}
-        <div class="meme-container">
-            <h1>{{meme.name}}</h1>
-            <p>{{meme.caption}}</p>
-            <img src="{{meme.url}}" alt="Meme #{{meme.id}}">
+        <div class="all-memes">
+            <!-- All the memes go here -->
         </div>
-        {% endfor %}
     </div>
+    <!-- All memes \End -->
 </body>
 
 <script src="../static/scripts/index/index.js"></script>

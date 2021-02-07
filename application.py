@@ -35,24 +35,4 @@ ma = Marshmallow(app)
 
 @app.route("/")
 def index():
-    memes = Meme.query.all()
-    return render_template("index.html", memes=memes)
-
-@app.route("/submit", methods=["GET","POST"])
-def submit():
-    if request.method == "POST":
-        try:
-            owner = request.form.get("username")
-            caption = request.form.get("caption")
-            url = request.form.get("image-link")
-
-            # Post the details to the database
-            meme = Meme(owner=owner, caption=caption, url=url)
-            db.session.add(meme)
-            db.session.commit()
-
-        except:
-            # Return custom error page later
-            return "An error occured"
-
-    return redirect(url_for("index"))
+    return render_template("index.html")

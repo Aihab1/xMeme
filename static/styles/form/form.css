@@ -142,6 +142,10 @@
           animation: buttonAnim 3s ease-in-out infinite;
 }
 
+.form #main-form-container #main-form span {
+  color: #3086e9;
+}
+
 .form .background-img img {
   position: absolute;
   top: 0;
