@@ -18,6 +18,48 @@ input:focus {
   border: none;
 }
 
+#hamburger-quit-editing {
+  position: fixed;
+  top: 15px;
+  left: 0;
+  z-index: 1002;
+  pointer-events: none;
+}
+
+#hamburger-quit-editing.clicked {
+  pointer-events: all;
+  padding: 10px 10px 5px 10px;
+  border-radius: 0.4rem;
+  background: white;
+}
+
+#hamburger-quit-editing.clicked .hamburger {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  width: 25px;
+  height: 2px;
+  margin-bottom: 5px;
+  background: -webkit-gradient(linear, left bottom, right top, from(magenta), to(rgba(255, 0, 255, 0.7)));
+  background: linear-gradient(to right top, magenta, rgba(255, 0, 255, 0.7));
+  z-index: 1002;
+}
+
+#hamburger-quit-editing.clicked .hamburger1 {
+  -webkit-transform: rotate(45deg) translateX(39%);
+          transform: rotate(45deg) translateX(39%);
+}
+
+#hamburger-quit-editing.clicked .hamburger3 {
+  -webkit-transform: rotate(315deg) translateX(39%);
+          transform: rotate(315deg) translateX(39%);
+}
+
+#hamburger-quit-editing.clicked .hamburger2 {
+  -webkit-transform: translateX(-150%);
+          transform: translateX(-150%);
+  opacity: 0;
+}
+
 @media screen and (max-width: 1000px) {
   #hamburger {
     position: fixed;
@@ -123,8 +165,8 @@ input:focus {
 
 .form #main-form-container #main-form {
   background: white;
-  -webkit-transition: width 0.5s ease-in-out;
-  transition: width 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   padding: 40px 20px;
   width: 700px;
   height: 600px;
@@ -199,6 +241,91 @@ input:focus {
 
 .form #main-form-container #main-form span {
   color: #3086e9;
+}
+
+.form #editing-form {
+  background: white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  padding: 40px 20px;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  z-index: 1001;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: fixed;
+  left: -101%;
+  top: 0;
+}
+
+.form #editing-form h1 {
+  width: 400px;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.form #editing-form .sub-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form #editing-form .sub-form label {
+  margin-bottom: -10px;
+}
+
+.form #editing-form .sub-form input {
+  margin: 15px 0;
+  padding: 5px 2.5px;
+  border-bottom: 2.5px solid black;
+  width: 400px;
+  font-size: 20px;
+  border-radius: 2px;
+}
+
+.form #editing-form .sub-form input:active,
+.form #editing-form .sub-form input:focus {
+  border-bottom: 2.5px solid #3086e9;
+}
+
+.form #editing-form button {
+  margin: 40px 0;
+  width: 400px;
+  border: 1px solid black;
+  padding: 5px 2.5px;
+  font-size: 20px;
+  border-radius: 2px;
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+
+.form #editing-form button:focus,
+.form #editing-form button:hover,
+.form #editing-form button:active {
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 0, 255, 0.7)), to(rgba(255, 0, 255, 0.3)));
+  background: linear-gradient(to right top, rgba(255, 0, 255, 0.7), rgba(255, 0, 255, 0.3));
+  -webkit-animation: buttonAnim 3s ease-in-out infinite;
+          animation: buttonAnim 3s ease-in-out infinite;
+}
+
+.form #editing-form.open {
+  left: 0;
+  top: 0;
 }
 
 .form .background-img img {
@@ -334,6 +461,34 @@ input:focus {
     width: 80%;
     font-size: 18px;
   }
+  .form #editing-form form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .form #editing-form h1 {
+    font-size: 2rem;
+    width: 80%;
+  }
+  .form #editing-form .sub-form {
+    width: 80%;
+  }
+  .form #editing-form .sub-form input {
+    width: 100%;
+    font-size: 18px;
+  }
+  .form #editing-form button {
+    width: 80%;
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -349,6 +504,9 @@ input:focus {
     font-size: 1rem;
   }
   .form #main-form-container #main-form h1, .form #main-form-container #main-form .sub-form, .form #main-form-container #main-form button {
+    width: 90%;
+  }
+  .form #editing-form h1, .form #editing-form .sub-form, .form #editing-form button {
     width: 90%;
   }
 }
@@ -426,6 +584,28 @@ input:focus {
   padding: 5px 0;
   font-size: 1.25rem;
   margin-bottom: 10px;
+}
+
+.meme-container-outer .meme-container button {
+  margin-top: 20px;
+  margin-left: auto;
+  max-width: 140px;
+  width: 95%;
+  height: auto;
+  padding: 5px 2.5px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  background: white;
+  border: 1px solid black;
+}
+
+.meme-container-outer .meme-container button:focus,
+.meme-container-outer .meme-container button:hover,
+.meme-container-outer .meme-container button:active {
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 0, 255, 0.7)), to(rgba(255, 0, 255, 0.3)));
+  background: linear-gradient(to right top, rgba(255, 0, 255, 0.7), rgba(255, 0, 255, 0.3));
+  -webkit-animation: buttonAnim 3s ease-in-out infinite;
+          animation: buttonAnim 3s ease-in-out infinite;
 }
 
 @media screen and (max-width: 600px) {

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <!-- Hamburger menu to toggle meme submission form (for small devices only)-->
     <div id="hamburger">
         <div class="hamburger hamburger1"></div>
@@ -20,6 +21,7 @@
         <div class="hamburger hamburger3"></div>
     </div>
     <!-- Hamburger \End -->
+
     <!-- Form to post memes -->
     <div class="form">
         <!-- Background image -->
@@ -27,6 +29,8 @@
             <img src="../static/images/background.jpg" alt="background-people-laughing">
         </div>
         <!-- Background image \End -->
+
+        <!-- Main submission form -->
         <div id="main-form-container">
             <div id="main-form-left">
                 <h1>Are you the meme lord?</h1>
@@ -37,7 +41,7 @@
             </div>
             <div id="main-form">
                 <h1>Post your meme</h1>
-                <form>
+                <form autocomplete="off">
                     <div class="username sub-form">
                         <label for="username">Meme Owner <span>*</span></label>
                         <input type="text" name="username" id="username" spellcheck="false"
@@ -57,8 +61,38 @@
                 </form>
             </div>
         </div>
+        <!-- Main submission form \End -->
+
+        <!-- Editing form -->
+        <div id="editing-form">
+            <div id="hamburger-quit-editing">
+                <div class="hamburger hamburger1"></div>
+                <div class="hamburger hamburger2"></div>
+                <div class="hamburger hamburger3"></div>
+            </div>
+            <h1>Edit meme #<span id="meme_id"></span></h1>
+            <form autocomplete="off">
+                <div class="username sub-form">
+                    <!-- <label for="edit-username">Meme Owner</label> -->
+                    <input type="text" name="edit-username" id="edit-username" spellcheck="false" required hidden>
+                </div>
+                <div class="caption sub-form">
+                    <label for="edit-caption">New Caption</label>
+                    <input type="text" name="edit-caption" id="edit-caption" spellcheck="false"
+                        placeholder="Be creative with the caption">
+                </div>
+                <div class="image-link sub-form">
+                    <label for="edit-image-link">New Meme URL</label>
+                    <input type="text" name="edit-image-link" id="edit-image-link" spellcheck="false"
+                        placeholder="Enter URL of your meme here" required>
+                </div>
+                <button id="update" type="submit">Submit</button>
+            </form>
+        </div>
+        <!-- Editing form \End -->
     </div>
     <!-- Form to post memes \End -->
+
     <!-- All memes container -->
     <div class="meme-container-outer">
         <h1 id="browse-header">Browse Memes</h1>
@@ -67,8 +101,10 @@
         </div>
     </div>
     <!-- All memes \End -->
+
 </body>
 
 <script src="../static/scripts/index/index.js"></script>
+<!-- <script src="../static/scripts/edit/edit.js"></script> -->
 
 </html>

@@ -4,10 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     //Toggling meme submission form from the post meme button
     const post_meme_button = document.querySelector('#post-meme-button');
     const meme_form = document.querySelector('#main-form');
+    const submit_button = document.querySelector('#create');
 
     post_meme_button.addEventListener('click', () => {
         meme_form.classList.toggle('open');
         hamburger.classList.toggle('clicked');
+
+        //Closing meme submission form when a meme is posted
+        if (meme_form.classList.contains('open')) {
+            submit_button.addEventListener('click', () => {
+                meme_form.classList.toggle('open');
+                hamburger.classList.toggle('clicked');
+            });
+        }
     });
 
     //Toggling meme submission form from the hamburger
@@ -16,6 +25,38 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         meme_form.classList.toggle('open');
         hamburger.classList.toggle('clicked');
+
+        //Closing meme submission form when a meme is posted
+        if (meme_form.classList.contains('open')) {
+            submit_button.addEventListener('click', () => {
+                meme_form.classList.toggle('open');
+                hamburger.classList.toggle('clicked');
+            });
+        }
+    });
+
+    const hamburger_quit_editing = document.querySelector('#hamburger-quit-editing');
+    const editing_form = document.querySelector('#editing-form');
+    const update_button = document.querySelector('#update');
+
+    //Removing all data when hamburger-quit-editing is clicked
+    hamburger_quit_editing.addEventListener('click', () => {
+        hamburger_quit_editing.classList.toggle('clicked');
+        editing_form.classList.toggle('open');
+        document.querySelector('#edit-username').setAttribute('value', '');
+        document.querySelector('#edit-caption').setAttribute('value', '');
+        document.querySelector('#edit-image-link').setAttribute('value', '');
+        document.querySelector('#meme_id').setAttribute('value', '');
+    });
+
+    //Removing all data and closing update form when a meme is updated
+    update_button.addEventListener('click', () => {
+        hamburger_quit_editing.classList.toggle('clicked');
+        editing_form.classList.toggle('open');
+        document.querySelector('#edit-username').setAttribute('value', '');
+        document.querySelector('#edit-caption').setAttribute('value', '');
+        document.querySelector('#edit-image-link').setAttribute('value', '');
+        document.querySelector('#meme_id').setAttribute('value', '');
     });
 
 });
@@ -91,6 +132,9 @@ ns.model = (function () {
                 })
                 .fail(function (xhr, textStatus, errorThrown) {
                     $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+
+                    // Alert the user that meme hasn't been updated as it exists
+                    alert('The meme with similar owner, caption and url exists!');
                 })
         },
     };
@@ -103,7 +147,6 @@ ns.view = (function () {
     let $username = $('#username'),
         $caption = $('#caption'),
         $image_link = $('#image-link');
-        //$create = $('#create');
 
     // return the API
     return {
@@ -112,11 +155,7 @@ ns.view = (function () {
             $caption.val('');
             $image_link.val('');
         },
-        // update_editor: function (meme) {
-        //     $username.val(meme.name);
-        //     $caption.val(meme.caption);
-        //     $image_link.val(meme.url).focus();
-        // },
+
         build_memes: function (memes) {
             let rows = ''
 
@@ -126,10 +165,11 @@ ns.view = (function () {
             // did we get a memes array?
             if (memes) {
                 for (let i = 0, l = memes.length; i < l; i++) {
-                    rows += `<div class="meme-container">
+                    rows += `<div class="meme-container" id="meme${memes[i].id}">
                         <h1 class="name">${memes[i].name}</h1>
                         <p class="caption">${memes[i].caption}</p>
                         <img src="${memes[i].url}" alt="Meme #${memes[i].id}">
+                        <button class="edit meme${memes[i].id}">Edit</button>
                     </div>`;
                 }
                 $('.all-memes').append(rows);
@@ -155,7 +195,11 @@ ns.controller = (function (m, v) {
         $event_pump = $('body'),
         $username = $('#username'),
         $caption = $('#caption'),
-        $image_link = $('#image-link');
+        $image_link = $('#image-link'),
+        $id = $('#meme_id'),
+        $edit_username = $('#edit-username'),
+        $edit_caption = $('#edit-caption'),
+        $edit_image_link = $('#edit-image-link');
 
     // Get the data from the model after the controller is done initializing
     setTimeout(function () {
@@ -186,34 +230,64 @@ ns.controller = (function (m, v) {
         }
     });
 
-    // If creating another form for update, use another variables!!!!!!
     $('#update').click(function (e) {
-        let name = $username.val(),
-            caption = $caption.val(),
-            url = $url.val();
+        let name = $edit_username.val(),
+            caption = $edit_caption.val(),
+            url = $edit_image_link.val(),
+            id = $id.html();
 
         e.preventDefault();
 
-        if (validate("Not empty", url)) {
+        if (validate("Non empty string", url)) {
             model.update({
                 name: name,
                 caption: caption,
                 url: url,
-            })
+                id: id
+            });
         } else {
             alert('Please do not leave the url field empty!');
         }
+
         e.preventDefault();
     });
-
-    $('#reset').click(function () {
-        view.reset();
-    })
 
     // Handle the model events
     $event_pump.on('model_read_success', function (e, data) {
         view.build_memes(data);
         view.reset();
+
+        //Edit form can only be toggled via id after we create the meme elements
+        const hamburger_quit_editing = document.querySelector('#hamburger-quit-editing');
+        const editing_form = document.querySelector('#editing-form');
+        //Toggling the edit-form for editing
+        document.querySelectorAll('.edit').forEach(edit_button => {
+            edit_button.addEventListener('click', () => {
+                const myClass = edit_button.className.split(' ')[1];
+                const memeDiv = document.getElementById(myClass);
+                const oldName = memeDiv.children[0].innerHTML;
+                const oldCaption = memeDiv.children[1].innerHTML;
+                const oldURL = memeDiv.children[2].src;
+                const id = myClass.substring(4);
+                document.querySelector('#edit-username').setAttribute('value', oldName);
+                document.querySelector('#edit-caption').setAttribute('value', oldCaption);
+                document.querySelector('#edit-image-link').setAttribute('value', oldURL);
+                document.querySelector('#meme_id').textContent = id;
+                editing_form.classList.toggle('open');
+                hamburger_quit_editing.classList.toggle('clicked');
+            });
+        });
+
+        //Removing all data and closing update form when a meme is updated
+        update_button.addEventListener('click', () => {
+            hamburger_quit_editing.classList.toggle('clicked');
+            editing_form.classList.toggle('open');
+            document.querySelector('#edit-username').setAttribute('value', '');
+            document.querySelector('#edit-caption').setAttribute('value', '');
+            document.querySelector('#edit-image-link').setAttribute('value', '');
+            document.querySelector('#meme_id').setAttribute('value', '');
+        });
+
     });
 
     $event_pump.on('model_create_success', function (e, data) {
@@ -227,7 +301,6 @@ ns.controller = (function (m, v) {
     $event_pump.on('model_error', function (e, xhr, textStatus, errorThrown) {
         let error_msg = textStatus + ': ' + errorThrown + ' - ' + xhr.responseJSON.detail;
         view.error(error_msg);
-        console.log(error_msg);
     })
 }(ns.model, ns.view));
 

@@ -64,6 +64,28 @@
   margin-bottom: 10px;
 }
 
+.meme-container-outer .meme-container button {
+  margin-top: 20px;
+  margin-left: auto;
+  max-width: 140px;
+  width: 95%;
+  height: auto;
+  padding: 5px 2.5px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  background: white;
+  border: 1px solid black;
+}
+
+.meme-container-outer .meme-container button:focus,
+.meme-container-outer .meme-container button:hover,
+.meme-container-outer .meme-container button:active {
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 0, 255, 0.7)), to(rgba(255, 0, 255, 0.3)));
+  background: linear-gradient(to right top, rgba(255, 0, 255, 0.7), rgba(255, 0, 255, 0.3));
+  -webkit-animation: buttonAnim 3s ease-in-out infinite;
+          animation: buttonAnim 3s ease-in-out infinite;
+}
+
 @media screen and (max-width: 600px) {
   .meme-container-outer #browse-header {
     font-size: 2.5rem;

@@ -18,6 +18,48 @@ input:focus {
   border: none;
 }
 
+#hamburger-quit-editing {
+  position: fixed;
+  top: 15px;
+  left: 0;
+  z-index: 1002;
+  pointer-events: none;
+}
+
+#hamburger-quit-editing.clicked {
+  pointer-events: all;
+  padding: 10px 10px 5px 10px;
+  border-radius: 0.4rem;
+  background: white;
+}
+
+#hamburger-quit-editing.clicked .hamburger {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  width: 25px;
+  height: 2px;
+  margin-bottom: 5px;
+  background: -webkit-gradient(linear, left bottom, right top, from(magenta), to(rgba(255, 0, 255, 0.7)));
+  background: linear-gradient(to right top, magenta, rgba(255, 0, 255, 0.7));
+  z-index: 1002;
+}
+
+#hamburger-quit-editing.clicked .hamburger1 {
+  -webkit-transform: rotate(45deg) translateX(39%);
+          transform: rotate(45deg) translateX(39%);
+}
+
+#hamburger-quit-editing.clicked .hamburger3 {
+  -webkit-transform: rotate(315deg) translateX(39%);
+          transform: rotate(315deg) translateX(39%);
+}
+
+#hamburger-quit-editing.clicked .hamburger2 {
+  -webkit-transform: translateX(-150%);
+          transform: translateX(-150%);
+  opacity: 0;
+}
+
 @media screen and (max-width: 1000px) {
   #hamburger {
     position: fixed;
