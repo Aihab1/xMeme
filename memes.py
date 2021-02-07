@@ -18,7 +18,8 @@ def read_all():
     """
     # Create the list of memes from our data
     memes = Meme.query \
-        .order_by(Meme.id) \
+        .order_by(Meme.id.desc()) \
+        .limit(100) \
         .all()
 
     # Serialize the data for the response

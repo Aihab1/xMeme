@@ -25,7 +25,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Read the swagger.yml file to configure the endpoints
 connex_app.add_api('swagger.yml')
-#connex_app.run(port=8081)
 
 # Create the SQLAlchemy db instance
 db = SQLAlchemy(app)
@@ -36,3 +35,6 @@ ma = Marshmallow(app)
 @app.route("/")
 def index():
     return render_template("index.html")
+
+if __name__ == '__main__':
+    app.run(port=8081)
