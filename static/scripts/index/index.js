@@ -43,20 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger_quit_editing.addEventListener('click', () => {
         hamburger_quit_editing.classList.toggle('clicked');
         editing_form.classList.toggle('open');
-        document.querySelector('#edit-username').setAttribute('value', '');
-        document.querySelector('#edit-caption').setAttribute('value', '');
-        document.querySelector('#edit-image-link').setAttribute('value', '');
-        document.querySelector('#meme_id').setAttribute('value', '');
+        document.querySelector('#edit-username').value = '';
+        document.querySelector('#edit-caption').value = '';
+        document.querySelector('#edit-image-link').value = '';
+        document.querySelector('#meme_id').innerHTML = '';
     });
 
-    //Removing all data and closing update form when a meme is updated
+    //Removing all data and closing the update form when a meme is updated
     update_button.addEventListener('click', () => {
         hamburger_quit_editing.classList.toggle('clicked');
         editing_form.classList.toggle('open');
-        document.querySelector('#edit-username').setAttribute('value', '');
-        document.querySelector('#edit-caption').setAttribute('value', '');
-        document.querySelector('#edit-image-link').setAttribute('value', '');
-        document.querySelector('#meme_id').setAttribute('value', '');
+        document.querySelector('#edit-username').value = '';
+        document.querySelector('#edit-caption').value = '';
+        document.querySelector('#edit-image-link').value = '';
+        document.querySelector('#meme_id').innerHTML = '';
     });
 
 });
@@ -87,6 +87,28 @@ ns.model = (function () {
             $.ajax(ajax_options)
                 .done(function (data) {
                     $event_pump.trigger('model_read_success', [data]);
+
+                    //Edit form can only be toggled via id after we create the meme elements which in turn will call the read model
+                    const hamburger_quit_editing = document.querySelector('#hamburger-quit-editing');
+                    const editing_form = document.querySelector('#editing-form');
+
+                    //Toggling the edit-form for editing
+                    document.querySelectorAll('.edit').forEach(edit_button => {
+                        edit_button.addEventListener('click', () => {
+                            const myClass = edit_button.className.split(' ')[1];
+                            const memeDiv = document.getElementById(myClass);
+                            const oldName = memeDiv.children[0].innerHTML;
+                            const oldCaption = memeDiv.children[1].innerHTML;
+                            const oldURL = memeDiv.children[2].src;
+                            const id = myClass.substring(4);
+                            document.querySelector('#edit-username').value = oldName;
+                            document.querySelector('#edit-caption').value = oldCaption;
+                            document.querySelector('#edit-image-link').value = oldURL;
+                            document.querySelector('#meme_id').innerHTML = id;
+                            editing_form.classList.toggle('open');
+                            hamburger_quit_editing.classList.toggle('clicked');
+                        });
+                    });
                 })
                 .fail(function (xhr, textStatus, errorThrown) {
                     $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
@@ -248,46 +270,12 @@ ns.controller = (function (m, v) {
         } else {
             alert('Please do not leave the url field empty!');
         }
-
-        e.preventDefault();
     });
 
     // Handle the model events
     $event_pump.on('model_read_success', function (e, data) {
         view.build_memes(data);
         view.reset();
-
-        //Edit form can only be toggled via id after we create the meme elements
-        const hamburger_quit_editing = document.querySelector('#hamburger-quit-editing');
-        const editing_form = document.querySelector('#editing-form');
-        //Toggling the edit-form for editing
-        document.querySelectorAll('.edit').forEach(edit_button => {
-            edit_button.addEventListener('click', () => {
-                const myClass = edit_button.className.split(' ')[1];
-                const memeDiv = document.getElementById(myClass);
-                const oldName = memeDiv.children[0].innerHTML;
-                const oldCaption = memeDiv.children[1].innerHTML;
-                const oldURL = memeDiv.children[2].src;
-                const id = myClass.substring(4);
-                document.querySelector('#edit-username').setAttribute('value', oldName);
-                document.querySelector('#edit-caption').setAttribute('value', oldCaption);
-                document.querySelector('#edit-image-link').setAttribute('value', oldURL);
-                document.querySelector('#meme_id').textContent = id;
-                editing_form.classList.toggle('open');
-                hamburger_quit_editing.classList.toggle('clicked');
-            });
-        });
-
-        //Removing all data and closing update form when a meme is updated
-        update_button.addEventListener('click', () => {
-            hamburger_quit_editing.classList.toggle('clicked');
-            editing_form.classList.toggle('open');
-            document.querySelector('#edit-username').setAttribute('value', '');
-            document.querySelector('#edit-caption').setAttribute('value', '');
-            document.querySelector('#edit-image-link').setAttribute('value', '');
-            document.querySelector('#meme_id').setAttribute('value', '');
-        });
-
     });
 
     $event_pump.on('model_create_success', function (e, data) {
