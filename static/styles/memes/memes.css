@@ -87,23 +87,36 @@
 }
 
 @media screen and (max-width: 600px) {
-  .meme-container-outer #browse-header {
-    font-size: 2.5rem;
-  }
-}
-
-@media screen and (max-width: 400px) {
   .meme-container-outer {
     padding: 15px;
   }
   .meme-container-outer #browse-header {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   .meme-container-outer .meme-container {
     padding: 10px;
   }
   .meme-container-outer .meme-container h1 {
+    padding: 0 10px;
+  }
+  .meme-container-outer .meme-container p {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .meme-container-outer {
+    padding: 10px;
+  }
+  .meme-container-outer #browse-header {
+    font-size: 2.2rem;
+  }
+  .meme-container-outer .meme-container {
+    padding: 0;
+  }
+  .meme-container-outer .meme-container h1 {
     font-size: 1.3rem;
+    margin-top: 10px;
   }
   .meme-container-outer .meme-container p {
     font-size: 1rem;
