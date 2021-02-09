@@ -14,7 +14,7 @@ basePath: /
 paths:
   /memes:
     get:
-      operationId: memes.read_all
+      operationId: backend.memes.read_all
       tags:
         - Memes
       summary: Read the entire set of memes, sorted by id in descending order
@@ -40,7 +40,7 @@ paths:
                   description: Url of the meme image
 
     post:
-      operationId: memes.create
+      operationId: backend.memes.create
       tags:
         - Memes
       summary: Create a meme
@@ -73,7 +73,7 @@ paths:
 
   /memes/{id}:
     get:
-      operationId: memes.read_one
+      operationId: backend.memes.read_one
       tags:
         - Memes
       summary: Read one meme
@@ -104,7 +104,7 @@ paths:
                 description: Url of the meme image
 
     patch:
-      operationId: memes.update
+      operationId: backend.memes.update
       tags:
         - Memes
       summary: Update a meme

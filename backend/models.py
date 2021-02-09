@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from config import db, ma
+from config import db
 from marshmallow_sqlalchemy import ModelSchema
 
 db = SQLAlchemy()

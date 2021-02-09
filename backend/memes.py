@@ -1,11 +1,8 @@
-from flask import (
-    make_response,
-    abort,
-)
+from flask import abort
 from config import db
-from models import (
+from backend.models import (
     Meme,
-    MemeSchema,
+    MemeSchema
 )
 
 # GET all memes
