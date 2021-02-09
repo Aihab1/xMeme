@@ -8,7 +8,7 @@ CORS(swaggerapp)
 def get_index():
     return redirect(url_for('get_docs'))
 
-@swaggerapp.route('/swagger-ui')
+@swaggerapp.route('/swagger-ui/')
 def get_docs():
     return render_template('swaggerui.html')
 
