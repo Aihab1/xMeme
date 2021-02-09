@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: This is the swagger file that goes with our server code
+  description: API of the xMeme application is documented here
   version: "1.0.0"
   title: Swagger for xMeme
 consumes:
@@ -17,8 +17,8 @@ paths:
       operationId: memes.read_all
       tags:
         - Memes
-      summary: Read the entire set of memes, sorted by id
-      description: Read the entire set of memes, sorted by id
+      summary: Read the entire set of memes, sorted by id in descending order
+      description: Read the entire set of memes, sorted by id in descending order
       responses:
         200:
           description: Successfully read memes set operation

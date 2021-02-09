@@ -190,7 +190,7 @@ ns.view = (function () {
                     rows += `<div class="meme-container" id="meme${memes[i].id}">
                         <h1 class="name">${memes[i].name}</h1>
                         <p class="caption">${memes[i].caption}</p>
-                        <img src="${memes[i].url}" alt="Meme #${memes[i].id}">
+                        <img src="${memes[i].url}" alt="Meme #${memes[i].id}" onerror="this.src='https://memegenerator.net/img/instances/66590904/and-then-i-told-them-guys-im-just-a-placeholder.jpg'">
                         <button class="edit meme${memes[i].id}">Edit</button>
                     </div>`;
                 }

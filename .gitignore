@@ -1,4 +1,4 @@
-Backend/__pycache__
-Backend/flask_session
+__pycache__
+flask_session
 xMemeEnv
 build_database.py
