@@ -17,11 +17,11 @@
         "tags": [
           "Memes"
         ],
-        "summary": "Read the entire set of memes, sorted by id in descending order",
-        "description": "Read the entire set of memes, sorted by id in descending order",
+        "summary": "Read the 100 latest memes",
+        "description": "Read the 100 latest memes",
         "responses": {
           "200": {
-            "description": "Successfully read memes set operation",
+            "description": "Successfully read the 100 latest memes",
             "content": {
               "application/json": {
                 "schema": {
@@ -57,35 +57,35 @@
         "tags": [
           "Memes"
         ],
-        "summary": "Create a meme",
+        "summary": "Create a new meme",
         "description": "Create a new meme",
-        "parameters": [
-          {
-            "name": "meme",
-            "in": "query",
-            "description": "Meme to create",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the meme owner to create"
-                  },
-                  "caption": {
-                    "type": "string",
-                    "description": "Caption of the meme to create"
-                  },
-                  "url": {
-                    "type": "string",
-                    "description": "Url of the meme to create"
+        "requestBody": {
+          "description": "Meme to create",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "items": {
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the meme owner"
+                    },
+                    "caption": {
+                      "type": "string",
+                      "description": "Caption of the meme to create"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "Url of the meme to create"
+                    }
                   }
                 }
               }
             }
           }
-        ],
+        },
         "responses": {
           "201": {
             "description": "Successfully created meme",
@@ -111,8 +111,8 @@
         "tags": [
           "Memes"
         ],
-        "summary": "Read one meme",
-        "description": "Read one meme",
+        "summary": "Read a meme",
+        "description": "Read a meme",
         "parameters": [
           {
             "name": "id",
@@ -126,7 +126,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully read meme from memes data operation",
+            "description": "Successfully read meme from the memes data operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -160,8 +160,8 @@
         "tags": [
           "Memes"
         ],
-        "summary": "Update a meme",
-        "description": "Update a meme",
+        "summary": "Update a meme's caption, url or both",
+        "description": "Update a meme's caption, url or both",
         "parameters": [
           {
             "name": "id",
@@ -171,25 +171,29 @@
               "type": "integer"
             },
             "required": true
-          },
-          {
-            "name": "meme",
-            "in": "query",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "caption": {
-                  "type": "string",
-                  "description": "Caption of the meme"
-                },
-                "url": {
-                  "type": "string",
-                  "description": "Url of the meme image"
+          }
+        ],
+        "requestBody": {
+          "description": "An object containing caption string, url string or both",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "caption": {
+                    "type": "string",
+                    "description": "Caption of the meme"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Url of the meme image"
+                  }
                 }
               }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Successfully updated the meme",

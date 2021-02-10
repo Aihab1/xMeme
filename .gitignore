@@ -1,4 +1,4 @@
 __pycache__
 flask_session
 xMemeEnv
-build_database.py
+test_server.sh
