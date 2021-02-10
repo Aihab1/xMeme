@@ -4,5 +4,6 @@
 # Any installation related commands
 
 # Installing all the required dependencies
-sudo apt-get install -y requirements.txt
+sudo apt install -y python3-pip
+pip3 install -r requirements.txt
 
