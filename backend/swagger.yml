@@ -17,11 +17,11 @@ paths:
       operationId: backend.memes.read_all
       tags:
         - Memes
-      summary: Read the entire set of memes, sorted by id in descending order
-      description: Read the entire set of memes, sorted by id in descending order
+      summary: Read the 100 latest memes
+      description: Read the 100 latest memes
       responses:
         200:
-          description: Successfully read memes set operation
+          description: Successfully read the 100 latest memes
           schema:
             type: array
             items:
@@ -43,7 +43,7 @@ paths:
       operationId: backend.memes.create
       tags:
         - Memes
-      summary: Create a meme
+      summary: Create a new meme
       description: Create a new meme
       parameters:
         - name: meme
@@ -76,8 +76,8 @@ paths:
       operationId: backend.memes.read_one
       tags:
         - Memes
-      summary: Read one meme
-      description: Read one meme
+      summary: Read a meme
+      description: Read a meme
       parameters:
         - name: id
           in: path
@@ -86,7 +86,7 @@ paths:
           required: True
       responses:
         200:
-          description: Successfully read meme from memes data operation
+          description: Successfully read meme from the memes data operation
           schema:
             type: object
             properties:
@@ -107,8 +107,8 @@ paths:
       operationId: backend.memes.update
       tags:
         - Memes
-      summary: Update a meme
-      description: Update a meme
+      summary: Update a meme's caption, url or both
+      description: Update a meme's caption, url or both
       parameters:
         - name: id
           in: path
