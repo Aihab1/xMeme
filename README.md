@@ -1,6 +1,6 @@
 # xMeme
 
-xMeme is a RESTful meme sharing web application built specifically for the Crio Winter of Doing program. It uses connexion on top of Flask for the backend. Frontend comprises of HTML, (S)CSS and Javascript along with AJAX to communicate with the server side.
+xMeme is a RESTful meme sharing web application built specifically for the Crio Winter of Doing program. It uses connexion on top of Flask for the backend. Frontend comprises of HTML, (S)CSS and Javascript (flask templating) along with AJAX to communicate with the server side when a user interacts with the frontend.
 
 ## Installation
 
