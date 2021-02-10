@@ -1,9 +1,14 @@
 #!/bin/bash
 
 
-# Any installation related commands
+# Update apt-install
+sudo apt-get update
 
 # Installing all the required dependencies
-sudo apt install -y python3-pip
-pip3 install -r requirements.txt
+sudo apt-get install -y python3.7
 
+sudo apt-get install -y python-pip
+
+curl -O https://bootstrap.pypa.io/get-pip.py
+
+pip install -r requirements.txt
