@@ -1,6 +1,20 @@
-# xMeme
+<h1 align="center">
+  <a href="https://x-meme.herokuapp.com/">xMeme</a>
+ </h1>
 
-xMeme is a RESTful meme sharing web application built specifically for the Crio Winter of Doing program. It uses connexion on top of Flask for the backend. Frontend comprises of HTML, (S)CSS and Javascript (flask templating) along with AJAX to communicate with the server side when a user interacts with the frontend.
+<p align="center">
+  xMeme is a RESTful meme sharing web application built specifically for the Crio Winter of Doing program.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white" />
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+</p>
+
+![Screenshot_1](https://user-images.githubusercontent.com/55903466/107414839-91990f80-6b38-11eb-8a53-6659bf0248b6.jpg)
 
 ## Installation
 
@@ -102,7 +116,6 @@ curl --location --request PATCH 'https://x-meme.herokuapp.com/memes/7' \
 ## Website Images
 Find images from the website below
 
-![Screenshot_1](https://user-images.githubusercontent.com/55903466/107414839-91990f80-6b38-11eb-8a53-6659bf0248b6.jpg)
 ![Screenshot_3](https://user-images.githubusercontent.com/55903466/107414855-965dc380-6b38-11eb-9845-f20168808e7d.jpg)
 ![Screenshot_2](https://user-images.githubusercontent.com/55903466/107414847-94940000-6b38-11eb-981e-66ce63f857a8.jpg)
 
